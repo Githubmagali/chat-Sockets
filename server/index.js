@@ -9,9 +9,13 @@ const io = new SocketServer(server)
 io.on('connection', socket =>{
     console.log('client connected')
 
-    socket.on('message', (data)=>{
-        console.log(data)
-        socket.broadcast.emit('message', data)
+    socket.on('message', (body)=>{ //cuando escuche el evento message nosotros vamos a recibir datos del frontend
+        console.log(body)
+        socket.broadcast.emit('message', {
+            body,
+            from: socket.id.slice(6)
+        })// reenvía el mensaje (data) a todos los demas clientes conectados
+        // excepto al que originalmente envio el mensaje.
     })
 })
 
