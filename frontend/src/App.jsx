@@ -49,7 +49,7 @@ const receiveMessage = (message)=>
       <ul className='flex flex-col gap-y-8'>
         {
           messages.map((message, index) =>(
-            <li key={index} className= {` ${message.from === 'Me' ? 'bg-zinc-300' : 'bg-zinc-100'}`}>
+            <li key={index} className= {`px-20 py-2 rounded-md ${message.from === 'Me' ? 'bg-zinc-300' : 'bg-zinc-100'}`}>
               {message.from}:{message.body}</li>
           ))
         }
