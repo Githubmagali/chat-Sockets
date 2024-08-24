@@ -39,17 +39,17 @@ const receiveMessage = (message)=>
   setMessages((state)=>[...state, message]);
   
   return (
-    <div className='flex  gap-x-10 items-center justify-center h-screen'>
+    <div className='flex flex-col gap-x-10 items-center justify-center pt-10'>
       <form onSubmit={handleSubmit}>
-        <input type='text' placeholder='texto....' className=" border border-gray-500"
+        <input type='text' placeholder='texto....' className=" border border-gray-500 mx-10"
         onChange={(e)=>setMessage(e.target.value)}/>
         <button className='border px-2'>Send</button>
       </form>
 
-      <ul className='flex flex-col gap-y-8'>
+      <ul className=' w-96 flex flex-col gap-y-2'>
         {
           messages.map((message, index) =>(
-            <li key={index} className= {`px-20 py-2 rounded-md ${message.from === 'Me' ? 'bg-zinc-300' : 'bg-zinc-100'}`}>
+            <li key={index} className= {` py-2 my-2 table rounded-md ${message.from === 'Me' ? 'bg-zinc-200' : 'bg-zinc-100 ml-auto'}`}>
               {message.from}:{message.body}</li>
           ))
         }
